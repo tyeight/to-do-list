@@ -1,16 +1,55 @@
-# React + Vite
+# To‑Do List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicativo de lista de tarefas desenvolvido com React + Vite. Permite criar, editar, filtrar e ordenar tarefas, com persistência automática no `localStorage` e notificações visuais.
 
-Currently, two official plugins are available:
+## Recursos
+- Adicionar tarefa com texto, prioridade (`Alta`, `Média`, `Baixa`) e data de conclusão
+- Editar tarefa (duplo clique), incluindo prioridade, categoria e data
+- Marcar/desmarcar como concluída
+- Filtros: `Todas`, `Ativas`, `Concluídas`
+- Ordenação: `Manual` (drag‑and‑drop), `Data`, `Prioridade`, `Texto`, `Status`
+- Persistência local: tarefas salvas no `localStorage`
+- Notificações: feedback ao clicar em botões usando `react-toastify`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Pré‑requisitos
+- Node.js 18+
+- npm
 
-## React Compiler
+## Instalação e execução
+```bash
+npm install
+npm run dev        # ambiente de desenvolvimento
+npm run build      # build para produção
+npm run preview    # pré-visualização do build
+npm run lint       # checagem de lint
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Como usar
+- Digite o texto da tarefa, selecione prioridade e (opcional) a data, e clique em `Adicionar` ou pressione `Enter`
+- Duplo clique no texto para editar; `Enter` salva; `Esc` cancela
+- Em ordenação `Manual`, arraste e solte itens para reordenar
+- Use `Limpar concluídas` para remover todas as tarefas finalizadas
 
-## Expanding the ESLint configuration
+## Estrutura do projeto
+- `src/App.jsx`: estado global, filtros, ordenação, drag‑and‑drop e persistência (`localStorage`)
+- `src/components/TodoItem.jsx`: componente de item com edição, badges de prioridade/categoria/data
+- `src/App.css` e `src/index.css`: estilos da aplicação
+- `index.html`: documento base em `pt-br` que monta o `#root`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologias
+- React 19
+- Vite 7
+- ESLint (Flat Config)
+- `react-toastify` para notificações
+
+## Detalhes de comportamento
+- Datas são inseridas no formato `YYYY-MM-DD` e exibidas como `DD/MM/YYYY`
+- Categoria é opcional e pode ser definida durante a edição
+- O contador "restantes" mostra quantas tarefas ainda não concluídas existem
+
+## Scripts
+Veja `package.json` para todos os scripts disponíveis:
+- `dev`, `build`, `preview`, `lint`
+
+## Licença
+Uso educacional/demonstrativo. Ajuste conforme a necessidade do seu projeto.
