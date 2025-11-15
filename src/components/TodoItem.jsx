@@ -24,8 +24,8 @@ function TodoItem({ todo, onToggle, onUpdateFields, onDelete, draggable, onDragS
   const [editing, setEditing] = useState(false)
   const [value, setValue] = useState(todo.text)
   const [priority, setPriority] = useState(todo.priority || 'media')
-const [category, setCategory] = useState(todo.category || '')
-const [due, setDue] = useState(toISO(todo.due || ''))
+  const [category, setCategory] = useState(todo.category || '')
+  const [due, setDue] = useState(toISO(todo.due || ''))
 
   const save = () => {
     const next = {}
@@ -71,8 +71,8 @@ const [due, setDue] = useState(toISO(todo.due || ''))
             <span>{todo.text}</span>
             <div className="badges">
               {todo.priority && <span className={`badge priority-${todo.priority}`}>{todo.priority}</span>}
-{todo.category && <span className="badge category">{todo.category}</span>}
-{todo.due && <span className="badge due">{formatBR(todo.due)}</span>}
+              {todo.category && <span className="badge category">{todo.category}</span>}
+              {todo.due && <span className="badge due">{formatBR(todo.due)}</span>}
             </div>
           </div>
         )}
